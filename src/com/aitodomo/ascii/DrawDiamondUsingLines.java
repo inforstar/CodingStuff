@@ -1,6 +1,6 @@
-package com.aitodomo;
+package com.aitodomo.ascii;
 /**
- * Draw Diamond in console using X
+ * Draw Diamond in console using ASCII
  *
  * Author: Robert Kaiser
  * Email: kaiser@aitodomo.ch
@@ -9,7 +9,7 @@ package com.aitodomo;
 
 import java.util.Scanner;
 
-public class DrawDiamond {
+public class DrawDiamondUsingLines {
     public void doit() {
         Scanner in = new Scanner(System.in);
         int width = 0;
@@ -30,14 +30,38 @@ public class DrawDiamond {
     }
 
     private void drawDiamond(int width) {
+        int middle = (width/2);
         for (int n = 0; n < width/2+1; n++) {
+            draw(String.format( "%02d", n+1) + ":");
             for (int j = 0; j < (width/2)-n; j++) draw(" ");
-            for (int j = (width/2)-n; j < (width/2)+n+1; j++) draw("X");
+            int first = (width/2)-n;
+            int last = (width/2)+n;
+            for (int j = first; j <= last; j++) {
+                if (n == 0)
+                    draw("▲");
+                else if (first == j)
+                    draw(middle == n ? "<" : "/");
+                else if (last == j)
+                    draw(middle == n ? ">" : "\\");
+                else
+                    draw(" ");
+            }
             System.out.println();
         }
         for (int n = (width/2)-1; n >= 0; n--) {
+            draw(String.format( "%02d", (++middle+1)) + ":");
             for (int j = 0; j < (width/2)-n; j++) draw(" ");
-            for (int j = (width/2)-n; j < (width/2)+n+1; j++) draw("X");
+            int first = (width/2)-n;
+            int last = (width/2)+n;
+            for (int j = first; j <= last; j++)
+                if (n == 0)
+                    draw("▼");
+                else if (first == j)
+                    draw("\\");
+                else if (last == j)
+                    draw("/");
+                else
+                    draw(" ");
             System.out.println();
         }
     }

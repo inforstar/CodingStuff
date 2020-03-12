@@ -1,5 +1,8 @@
 package com.aitodomo;
 
+import com.aitodomo.ascii.DrawDiamond;
+import com.aitodomo.ascii.DrawDiamondUsingLines;
+
 public class Main {
 
     public static void main(String[] args) {
