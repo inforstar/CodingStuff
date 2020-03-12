@@ -1,4 +1,3 @@
 
-out/production/CodingStuff/META-INF/CodingStuff.kotlin_module
-.idea/uiDesigner.xml
-.idea/uiDesigner.xml
+/out
+/.idea
